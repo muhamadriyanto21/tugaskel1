@@ -1,0 +1,576 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    outline: none; border: none;
+    text-decoration: none;
+    transition: all .2s linear;
+}
+
+$green:#90ECA5;
+$dark-green:#0eb582;
+// $yellow:#066bf0;
+$light-green:#c2faa6;
+$light-green-bg:#f5fff0;
+$white:#fff;
+$black:#334;
+$light-color:#777;
+$light-bg:#f5f5f5;
+$border:.2rem solid $black;
+$box-shadow:0 .5rem 1rem rgba(28, 172, 40, 0.1);
+
+@mixin grid($val) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax($val, 1fr));
+    gap:2rem;
+}
+
+@mixin titleText($titleSize) {
+font-size: $titleSize;
+text-transform: capitalize;
+color:$black;
+}
+
+@mixin graphText($graphSize) {
+font-size: $graphSize;
+line-height: 2;
+color:$light-color;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+
+    &::-webkit-scrollbar {
+        width: 1rem;
+    }
+
+    &::-webkit-scrollbar-track{
+        background: $white;
+    }
+
+    &::-webkit-scrollbar-thumb{
+        background: $green;
+        border-radius: 5rem;
+    }
+}
+
+
+
+section{
+    width: 100%;
+    padding: 5rem 10%;
+}
+
+.heading {
+    text-align: center;
+    margin-bottom: 3rem;
+    @include titleText(4rem);
+    margin: 4rem 0;
+
+    span {
+        color: $green;
+    }
+}
+
+
+
+.header {
+
+    .navbar {
+        padding:2rem 10%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: $white;
+        border-bottom: $border;
+        position: relative;
+        z-index: 1000;
+
+        &.active {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            border-bottom: none;
+            box-shadow: $box-shadow;
+        }
+
+        .logo img {
+            width: 9.375rem;
+        }
+
+        .links {
+
+            a {
+                color: $green;
+                font-size: 1.5rem;
+                margin-right: 2rem;
+                // @include titleText(1.5rem);
+                transition: .5s;
+
+                &:hover {
+                    color: $light-color;
+                }
+            }
+        }
+    }
+    
+    #menu-btn {
+        font-size: 3rem;
+        cursor: pointer;
+        color: $black;
+        display: none;
+    }
+}
+
+// beranda
+.home {
+    min-height: 100vh;
+    background: linear-gradient(76.34deg, $white 52.45%, rgba(196, 196, 196, 0) 52.49%), url(../images/rasyid-maulana-yVwiHXoTrnU-unsplash.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    border-bottom: $border;
+    animation: background 10s alternate infinite;
+
+    .content {
+        position: relative;
+        flex:1 1 42rem;
+        text-align: left;
+        justify-content: center;
+        margin: 30rem 0;
+
+        h3 {
+            font-size: 4rem;
+            color: $black;
+            margin: 3rem 0rem;
+            line-height: 1.3;
+            width: 30rem;
+
+            span {
+                color: $green;
+            }
+        }
+
+        p {
+            font-size: 1.6rem;
+            color: $light-color;
+            line-height: 2.5rem;
+            width: 40rem;
+        }
+    }
+    
+}
+
+@keyframes background {
+    0%, 100% {
+        background: linear-gradient(76.34deg, $white 52.45%, rgba(196, 196, 196, 0) 52.49%), url(../images/rasyid-maulana-yVwiHXoTrnU-unsplash.jpg) no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+
+    25% {
+        background: linear-gradient(76.34deg, $white 52.45%, rgba(196, 196, 196, 0) 52.49%), url(../images/kevin-yudhistira-alloni-Yaa2wZNK4sQ-unsplash.jpg) no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+
+    50% {
+        background: linear-gradient(76.34deg, $white 52.45%, rgba(196, 196, 196, 0) 52.49%), url(../images/aulia-azharuddin-ahmady-AUiqQn3mSgQ-unsplash.jpg) no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+
+    75% {
+        background: linear-gradient(76.34deg, $white 52.45%, rgba(196, 196, 196, 0) 52.49%), url(../images/andiko-baskoro-Lo3x103iBew-unsplash.jpg) no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+}
+
+// feature
+
+.feature {
+    background: $light-green-bg;
+    border-bottom: $border;
+
+    .box-container {
+        @include grid(30rem);
+        
+        .box {
+            background-color: $white;
+            padding: 3rem;
+            text-align: center;
+            border: $border;
+            border-radius: 8px;
+            box-shadow: $box-shadow;
+
+            &:hover {
+                background: $green;
+
+                h3 {
+                    color: $white;
+                }
+
+                p {
+                    color: $white;
+                }
+            }
+
+            img {
+                height: 10rem;
+                margin-bottom: .5rem;
+            }
+
+            h3 {
+                padding: 1rem 0;
+                @include titleText(2rem)
+            }
+
+            p {
+                @include graphText(1.6rem)
+            }
+        }
+    }
+}
+
+// news
+
+.news {
+
+    .grid {
+        @include grid(31rem);
+
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap-reverse;
+        gap: 3rem;
+
+        .image {
+            flex: 1 1 40rem;
+
+            img {
+                width: 100%;
+                max-height: 342px;
+                object-fit: cover;
+                border-radius: 8px;
+            }
+        }
+
+        .content {
+            flex: 1 1 40rem;
+
+            h3 {
+                @include titleText(3rem);
+            }
+
+            p {
+                @include graphText(1.6rem);
+                padding: 1rem 0;
+            }
+
+            .btn {
+                color: $green;
+                background-color: $white;
+                text-decoration: underline;
+                transition: .5s;
+
+                &:hover {
+                    color: $black;
+                }
+            }
+        }
+    }
+
+    
+}
+
+
+
+/* footer */
+
+.footer {
+    background-color: $light-green-bg;
+}
+
+.footer .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.footer .box-container .box h3 {
+    font-size: 2rem;
+    color: var(--black);
+    margin-bottom: 2rem;
+}
+
+.footer .box-container .box a {
+    display: block;
+    padding: 1rem 0;
+    color: $light-bg;
+    font-size: 1.6rem;
+    transition: .5s;
+}
+
+
+
+.footer .box-container .box a {
+    padding-right: 1rem;
+    transition: .2s linear;
+    color: $black;
+}
+
+.footer .box-container .box a:hover  {
+    color: $green;
+}
+
+.footer .credit {
+    padding: 2rem;
+    text-align: center;
+    border-top: var(--border);
+    font-size: 2rem;
+    padding-bottom: 3.5rem;
+}
+
+.credit img {
+    width: 9.375rem;
+}
+
+
+
+// filter
+.filter-container {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+}
+
+.accordion-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    margin-top: 10px;
+    width: max-content;
+}
+
+.active,
+.accordion:hover {
+    background-color: #ccc;
+}
+
+.panel {
+    padding: 0 18px;
+    background-color: white;
+    display: none;
+    overflow: hidden;
+}
+
+.filter-section {
+    margin-bottom: 10px;
+}
+
+.filter-section h3 {
+    margin-top: 0;
+}
+
+.filter-section button {
+    display: block;
+    margin-top: 5px;
+}
+
+.filter {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: center;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    margin-top: 10px;
+}
+
+.filter:hover {
+    background-color: #ccc;
+}
+
+
+.destination {
+    background: $white;
+    
+    .box-container {
+        @include grid(30rem);
+        
+        .box {
+            
+            width: 35rem;
+            text-align: center;
+    
+            .image {
+                height: 20rem;
+                width: 80%;
+                overflow: hidden;
+                margin: 0 auto;
+                margin-bottom: -3rem;
+    
+                img  {
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                    border-top-right-radius: 12px;
+                    border-top-left-radius: 12px;
+                }
+            }
+    
+            .content {
+                padding: 2rem;
+                padding-top: 5rem;
+                margin: 2rem;
+                background: $light-green-bg;
+    
+                h3 {
+                    @include titleText(2rem);
+                }
+    
+                p {
+                    padding: 1rem 0;
+                    @include graphText(1.4rem);
+                }
+    
+                .btn {
+                    text-decoration: underline;
+                    color: $black;
+                    font-size: 1.5rem;
+                }
+            }
+        }
+    }
+
+}
+
+
+
+
+
+
+
+
+
+// media queries
+
+@media (max-width:1200px) {
+
+    .header {
+
+        .navbar {
+            padding: 2rem 5%;
+        }
+
+    }
+
+    .home {
+
+        .content {
+            padding-top: 10rem;
+        }
+    }
+
+}
+
+@media (max-width:991px) {
+
+    html {
+        font-size: 55%;
+    }
+
+    .header {
+
+        .navbar {
+            padding: 2rem;
+        }
+
+    }
+}
+
+@media (max-width:768px) {
+
+    .header {
+
+        #menu-btn {
+            display: inline-block;
+
+            &.fa-times {
+                transform: rotate(180deg);
+
+            }
+        }
+
+        .navbar {
+
+            .links {
+                position: absolute;
+                top: 99%; left: 0; right: 0;
+                background: $white;
+                border-top: $border;
+                border-bottom: $border;
+                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+                
+                &.active {
+                    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+                }
+
+                a {
+                    display: block;
+                    margin: 2.5rem 2rem;
+                    font-size: 1.8rem;
+                }
+            }
+        }
+    }
+
+    .home {
+
+        animation: none;
+        background: linear-gradient(rgba(255, 255, 255, .8), rgba(255, 255, 255, .8)), url(../images/rasyid-maulana-yVwiHXoTrnU-unsplash.jpg) no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        
+        .content {
+            text-shadow: .1rem .1rem .3rem $light-color;
+            // padding-top: 25rem;
+
+
+        }
+    }
+
+}
+
+@media (max-width:450px) {
+
+    html {
+        font-size: 50%;
+    }
+
+}
